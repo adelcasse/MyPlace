@@ -1,0 +1,33 @@
+<script>
+  $(document).ready(function(){
+    $('a.close').click(function() {
+      $("#dataSlot").slideUp();
+    });
+  });
+</script>
+
+<p class="topLinks">
+  <a class="delete" href="#">Delete</a>
+  <a class="edit" href="#">Edit</a>
+  <a class="close" href="#">Close</a>
+</p>
+
+
+<h1><%= @calendar_event.title %></h1>
+<div class="dates">
+  <p class="start">Start :
+    <% if @calendar_event.allDay %>
+      <%= @calendar_event.start.to_date %>
+    <% else %>
+      <%= @calendar_event.start %>
+    <% end %>
+  </p>
+  <p class="end">End : 
+    <% if @calendar_event.allDay %>
+      <%= @calendar_event.end.to_date %>
+    <% else %>
+      <%= @calendar_event.end %>
+    <% end %>
+  </p>
+</div>
+<p><%= nl2br @calendar_event.description %></p>

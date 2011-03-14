@@ -1,0 +1,77 @@
+<script>
+
+	// remove time selection if an allday event is requested
+	function toggleTimeField(){
+		if($("#allday_cb").is(":checked")){
+			$('.timefield').hide();
+		}
+		else{
+			$('.timefield').show();
+		}
+	}
+        $(document).ready(function() {
+		// Datepicker and Timepicker initialisation to pick up a date and time with calendars
+		$( "#datepicker_start" ).datepicker();
+		$( "#datepicker_start" ).datepicker("option", "dateFormat", "yy-mm-dd");
+		$( "#datepicker_end" ).datepicker();
+		$( "#datepicker_end" ).datepicker("option", "dateFormat", "yy-mm-dd");
+		$( "#timepicker_start" ).timepicker();
+		$( "#timepicker_end" ).timepicker();
+
+		//set default dates and times to datepickers and timepickers
+		var date = new Date();
+		var d = date.getDate();
+		var m = date.getMonth() + 1;
+		var y = date.getFullYear();
+		var h = date.getHours();
+
+		$("#datepicker_start").val(y+'-'+m+'-'+d); // Default value : today
+		$("#datepicker_end").val(y+'-'+m+'-'+d); // Default value : today
+		$("#timepicker_start").val(h+1+':00'); // Default value : next hour
+		$("#timepicker_end").val(h+2+':00'); // Default value : 2 hours later (meeting would last & hour)
+		
+		// remove or add time selection wether we have an allday event or not
+        	$('#allday_cb').click(toggleTimeField)
+        });
+
+</script>
+
+<%= form_for(@calendar_event) do |f| %>
+  <% if @calendar_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@calendar_event.errors.count, "error") %> prohibited this calendar_event from being saved:</h2>
+
+      <ul>
+      <% @calendar_event.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :allDay %><br />
+    <%= f.check_box :allDay, :id => "allday_cb" %>
+  </div>
+  <div class="field">
+    <%= f.label :start_date %><br />
+    <%= f.text_field :start_date, :class => 'datefield', :id => "datepicker_start" %>
+    <%= f.text_field :start_time, :class => 'timefield', :id => "timepicker_start" %>
+  </div>
+  <div class="field">
+    <%= f.label :end_date %><br />
+    <%= f.text_field :end_date, :class => 'datefield', :id => "datepicker_end" %>
+    <%= f.text_field :end_time, :class => 'timefield', :id => "timepicker_end" %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, :cols => '40', :rows => '10' %>
+  </div>
+  <div class="actions">
+    <%= f.submit :value => 'Submit Event' %>
+  </div>
+<% end %>

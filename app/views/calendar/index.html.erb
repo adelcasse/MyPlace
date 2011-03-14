@@ -1,0 +1,66 @@
+<!--
+#MyPlace, by Arnaud Delcasse
+# This project is licenced under the terms of the MIT Licence. See
+# MIT-LICENCE.txt for more details
+-->
+<script>
+  
+  showEventDetails = function(event){
+    $.get('/calendar_events/'+event._id,
+          function(data){
+            $('#dataSlot').html(data);
+	    $('#dataSlot').slideDown('fast');
+          }
+    );
+  }
+
+  $(document).ready(function(){
+      $('#calendar').fullCalendar({
+          editable: true,
+          header: {
+              left: 'prev,next today',
+              center: 'title',
+              right: 'month,agendaWeek,agendaDay'
+          },
+          defaultView: 'agendaWeek',
+          height: 500,
+          slotMinutes: 60,
+          loading: function(bool){
+              if (bool) 
+                  $('#loading').show();
+              else 
+                  $('#loading').hide();
+          },
+          events: "/calendar_events/",
+          timeFormat: 'h:mm t{ - h:mm t} ',
+          dragOpacity: "0.5",
+          eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
+                  moveEvent(event, dayDelta, minuteDelta, allDay);
+          },
+          
+          eventResize: function(event, dayDelta, minuteDelta, revertFunc){
+                  resizeEvent(event, dayDelta, minuteDelta);
+          },
+          
+          eventClick: function(event, jsEvent, view){
+              showEventDetails(event);
+          },
+      
+      
+      
+      
+      });
+      
+      
+  });
+</script>
+
+
+<h1>Calendar</h1>
+<%= link_to 'New event', :controller=>'calendar_events', :action=>'new' %>
+
+<div id="dataSlot">
+</div>
+
+<div id="calendar">
+</div>

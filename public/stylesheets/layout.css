@@ -1,0 +1,171 @@
+body{
+  margin: 0px;
+  padding: 0px;
+  font-family: sans-serif;
+}
+
+#header{
+  height: 2.1em;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #000000;
+  background: url('/images/header_background.png');
+  border-top: 2px solid #909090;
+  border-bottom: 2px solid #777777;
+}
+#header p{
+  margin-top: 0px;
+  color: #FFFFFF;
+  margin-bottom: 0px;
+}
+#header p.logo{
+  width: 50%;
+  font-weight: bold;
+  float: left;
+  padding-left: 0.5em;
+  font-size: 1.2em;
+}
+#header p.logo .italic{
+  font-size: small;
+  font-weight: normal;
+}
+#header #login{
+  margin-right: 10px;
+}
+#header #login p.login{
+  border: 2px solid #666666;
+  width: 200px;
+  text-align: center;
+  float: right;
+  overflow: auto;
+  background-color: #111111;
+  margin-top: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: small;
+  border-radius: 5px;
+  color: #eeeeee;
+}
+#header #login p.login img{
+  height: 0.8em;
+  border: 0px;
+}
+#header #login p.login a{
+  text-decoration: none;
+  color: #aaaaaa;
+  display: block;
+  width: 100%;
+}
+#header #login ul#profile_menu{
+  background-color: #222222;
+  border: 2px solid #666666;
+  border-top: 0px;
+  padding: 0px;
+  width: 200px;
+  clear: right;
+  float: right;
+  margin-right: 5px;
+  margin-top: 0px;
+}
+#header #login ul#profile_menu li{
+  list-style: none;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#header #login ul#profile_menu li a{
+  display: block;
+  color: #aaaaaa;
+  text-decoration: none;
+  text-align: center;
+}
+#header #login ul#profile_menu li a:hover{
+  background-color: #333333;
+}
+
+#content{
+  margin-right: 10%;
+  margin-left: 10%;
+  padding: 5px;
+  border-right: 1px solid #000000;
+  border-left: 1px solid #000000;
+}
+
+#footer{
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+  padding-bottom: 0px;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+#footer p{
+  font-size: small;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+#footer p a{
+  font-style: italic;
+}
+
+
+.italic{
+  font-style: italic;
+}
+
+
+
+
+/***** Special CSS styles *****/
+
+/* Calendar - Events management */
+input.datefield{
+  text-align: center;
+  color: #888888;
+  width: 100px;
+}
+input.timefield{
+  text-align: center;
+  color: #888888;
+  width: 60px;
+}
+#dataSlot{
+  display: none;
+  border: 3px solid #444444;
+  width: 80%;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding-bottom: 1em;
+}
+#dataSlot h1{
+  margin: 0px;
+  padding: 10px;
+  background-color: #888888;
+  color: #ffffff;
+}
+#dataSlot p{
+  margin: 0px;
+  padding: 10px;
+  padding-bottom: 0px;
+}
+#dataSlot .dates{
+  color: #3366cc;
+  font-weight: bold;
+}
+#dataSlot .dates .start{
+  float: left;
+  display: inline;
+  padding-right: 40px;
+}
+#dataSlot p.topLinks{
+  text-align: right;
+  padding: 0px;
+  margin: 0px;
+  padding-right: 3px;
+}

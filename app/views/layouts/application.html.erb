@@ -1,0 +1,50 @@
+
+<!--
+#MyPlace, by Arnaud Delcasse
+# This project is licenced under the terms of the MIT Licence. See
+# MIT-LICENCE.txt for more details
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chouchoune -- Myplace</title>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/jquery-ui.js" %>
+  <%= javascript_include_tag 'jquery-ujs' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'fullcalendar' %>
+  <%= javascript_include_tag 'jquery-timepicker' %>
+  <%= csrf_meta_tag %>
+</head>
+<body>
+<div id="header">
+  <p class="logo">
+    MYPLACE <span class="italic">alpha</a>
+  </p>
+  <div id="login">
+    <p class="login">
+      <% if user_signed_in? %>
+        <%= link_to (image_tag 'down_profile_arrow.png', :alt => 'Open profile menu')+' '+current_user.email, '#', :class => 'toggleProfileMenu' %>
+      <% else %>
+        <%= link_to "You're not logged in - Login", new_user_session_path %>
+      <% end %>
+    </p>
+    <ul id="profile_menu" style="display: none;">
+      <li><%= link_to 'My Profile', "#" %></li>
+      <li><%= link_to 'Logout', destroy_user_session_path %></li>
+    </ul>
+  </div>
+</div>
+<div id="content">
+<%= yield %>
+</div>
+<div id="footer">
+  <p>MyPlace is still in development and cannot be used as a "production software".</p>
+</div>
+<script language="ext/javascript">
+  $('profile_menu').toggle();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<h1>Listing calendar_events</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calendar_events.each do |calendar_event| %>
+  <tr>
+    <td><%= calendar_event.title %></td>
+    <td><%= calendar_event.start %></td>
+    <td><%= calendar_event.end %></td>
+    <td><%= calendar_event.description %></td>
+    <td><%= link_to 'Show', calendar_event %></td>
+    <td><%= link_to 'Edit', edit_calendar_event_path(calendar_event) %></td>
+    <td><%= link_to 'Destroy', calendar_event, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calendar event', new_calendar_event_path %>

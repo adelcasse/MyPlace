@@ -1,0 +1,11 @@
+MyPlace is a software developped by Arnaud Delcasse <delcasse@gmail.com>
+
+This software is licenced under the terms of the MIT licence, located in
+the file MIT-LICENCE.txt
+
+This project uses Rails Framework and includes JQuery Javascript framework
+and FullCalendar.js by Adam Shaw.
+
+The project is still in heavy development phase and cannot be used as production
+software yet. Any help would be welcome and don't hesitate to fork this code on
+Github and provide pull requests.
