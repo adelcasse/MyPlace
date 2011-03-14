@@ -1,4 +1,4 @@
-MyPlace is a software developped by Arnaud Delcasse <delcasse@gmail.com>
+MyPlace is a software developed by Arnaud Delcasse <delcasse@gmail.com>
 
 This software is licenced under the terms of the MIT licence, located in
 the file MIT-LICENCE.txt
@@ -6,6 +6,20 @@ the file MIT-LICENCE.txt
 This project uses Rails Framework and includes JQuery Javascript framework
 and FullCalendar.js by Adam Shaw.
 
-The project is still in heavy development phase and cannot be used as production
-software yet. Any help would be welcome and don't hesitate to fork this code on
-Github and provide pull requests.
+The full Ruby Gems list used within the project can be found in the Gemfile. Myplace
+uses MongoDB NoSQL database and several Gems like :
+ - MongoId : Rails ORM for MongoDB
+ - Devise : Authentication plugin for Rails
+ - ... (check Gemfile for more informations)
+
+The project is still in an early development stage and cannot be used as production
+software yet (there might be probably security issues and bugs).
+Any help would be welcome and don't hesitate to fork this code on Github and provide
+pull requests or feedbacks.
+
+TODO (Quick overview, will be improved later with a roadmap) :
+ - Finish calendar application
+ - RSS reader
+ - Webmail
+ - Social feeds - Facebook/Twitter gateways, OStatus / Diaspora* protocols integration
+ - Media integration (images, documents, videos, ...)
